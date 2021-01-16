@@ -44,12 +44,12 @@ DATA = {
 }
 
 def main 
-    make_users
-    make_witchers
-    make_locations
-    make_types
-    make_monsters 
-    make_contracts 
+    # make_users
+    # make_witchers
+    # make_locations
+    # make_types
+    # make_monsters 
+    # make_contracts 
 end
 
 def make_users
