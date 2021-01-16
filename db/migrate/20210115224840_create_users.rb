@@ -4,8 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :password_digest
       t.string :school
-      t.boolean :witcher, default: false 
-      t.integer :location_id
+      t.boolean :witcher, default: 0 
 
       t.timestamps
     end
