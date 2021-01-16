@@ -1,24 +1,23 @@
-# README
+# Witcher Contract Board
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A digital notice board based on the Witcher game series. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+After downloading, navigate into the repo and execute:
+    ``` bundle install ```
+Then execute: 
+    ``` rails s ```
+Navigate to localhost:3000/ to use the site.
 
-* System dependencies
+## Development 
 
-* Configuration
+This site is currently under development. 
 
-* Database creation
+## Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome on GitHub at https://github.com/sebastianspiegel/witcher-notice-board/. 
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
