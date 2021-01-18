@@ -1,0 +1,10 @@
+class TypessController < ApplicationController
+
+    def show
+        @type = Type.find(params[:id])
+    end
+
+    def index
+        @types = Type.all 
+    end
+end

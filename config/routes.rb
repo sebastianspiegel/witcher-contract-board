@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   resources :contracts 
 
+  resources :monsters, only: [:show, :index]
+  resources :types, only: [:show, :index]
+
 end
