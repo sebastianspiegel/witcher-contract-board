@@ -1,0 +1,7 @@
+
+<% if !session[:user_id] %>
+    <%= link_to "Sign in" signin_path %>
+<% else %>
+    <%= link_to "Log Out", logout_path, method: "post" %>
+<% end %>
+

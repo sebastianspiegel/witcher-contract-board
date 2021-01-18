@@ -2,7 +2,7 @@ class CreateContracts < ActiveRecord::Migration[6.1]
   def change
     create_table :contracts do |t|
       t.integer :reward
-      t.string :claimed, default: "Unclaimed" 
+      t.integer :claimed_id 
       t.integer :user_id
       t.integer :monster_id
       t.integer :location_id
