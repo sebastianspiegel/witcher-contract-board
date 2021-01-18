@@ -5,6 +5,6 @@ class TypesController < ApplicationController
     end
 
     def index
-        @types = Type.all 
+        @types = Type.all[1..-1]
     end
 end

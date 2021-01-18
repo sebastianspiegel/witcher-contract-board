@@ -1,2 +1,7 @@
 <h2> <%= @type.name %> </h2>
 <h3> <%= @type.weakness %> </h3>
+
+Monsters of this type:<br>
+<% @type.monsters.each do |monster| %>
+  <%= link_to monster.name, monster_path(monster) %><br>
+<% end %>

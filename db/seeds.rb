@@ -11,6 +11,7 @@ DATA = {
     :type_keys =>
         ["name", "weakness"],
     :types => [
+        ["Empty", "on purpose"],
         ["Vampire", "Vampirc Oil"],
         ["Wraiths", "Wraith Oil"]
     ],
@@ -20,8 +21,8 @@ DATA = {
         ["name", "type_id"],
     :monsters => [
         ["Create new", 1],
-        ["Jenny o' the woods", 2],
-        ["Dracula", 1]
+        ["Jenny o' the woods", 3],
+        ["Dracula", 2]
     ],
     :witchers => [
         "Geralt",
