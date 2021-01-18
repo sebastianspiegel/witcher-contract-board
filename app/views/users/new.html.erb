@@ -2,10 +2,10 @@
 
 
 <%= form_tag ({controller: 'users', action: 'create', method: 'post'}) do %>
-    Name: <%= f.text_field :name %><br>
+    Name: <%= text_field(:user, :name) %><br>
     Password: <%= password_field(:user, :password) %><br>
     <br>
     Witcher's Only:<br>
-    School: <%= collection_select(:user, :school_id, School.all,  ) %><br>
+    School: <%= collection_select(:user, :school_id, School.all, :school, :school) %><br>
     <%= submit_tag 'Sign Up' %>
 <% end %> 

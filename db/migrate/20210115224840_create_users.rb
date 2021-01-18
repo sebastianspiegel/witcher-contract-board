@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.string :name
       t.string :password_digest
-      t.string :school, defualt: nil 
+      t.integer :school_id 
 
       t.timestamps
     end

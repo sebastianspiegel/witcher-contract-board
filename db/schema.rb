@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_143656) do
+ActiveRecord::Schema.define(version: 2021_01_18_142016) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer "reward"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2021_01_16_143656) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.string "weakness"
@@ -45,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_143656) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
-    t.string "school"
+    t.integer "school_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
