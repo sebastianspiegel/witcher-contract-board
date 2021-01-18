@@ -1,7 +1,10 @@
-<%= @contract.monster.name %><br>
-<%= @contract.location.name %><br>
-<%= @contract.reward %><br>
-<%= @contrat.details %><br>
+<br><br><br>
+
+Monster: <%= @contract.monster.name %><br>
+Location: <%= @contract.location.name %><br>
+Reward: <%= @contract.reward %><br>
+Details: <%= @contract.details %><br>
+Posted by: <%= @contract.user.name %>
 
 <% if @user.witcher? %>
   Link here to claim a contract (check out the amusement park take ride button?)
