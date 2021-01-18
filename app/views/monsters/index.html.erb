@@ -1,5 +1,5 @@
 <h2>All monsters</h2>
 
 <% @monsters.each do |monster| %>
-  <%= monster.name %><br>
+  <%= link_to monster.name, monster_path(monster) %><br>
 <% end %>
