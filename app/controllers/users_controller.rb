@@ -16,6 +16,11 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        if @user.witcher? 
+            @contracts = @user.witcher_contracts
+        else 
+            @contracts = @user.contracts
+        end
     end
 
     private 
