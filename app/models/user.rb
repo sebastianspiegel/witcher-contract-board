@@ -5,8 +5,13 @@ class User < ActiveRecord::Base
     belongs_to :school 
 
     def witcher?
-        #is user a witcher?
         self.school_id != 1
     end
 
-end
+    def witcher_contracts
+        Contract.where(claimed_id: self.id) 
+    end
+
+    # scope :witcher_contracts, -> { Contract.where(claimed_id: self.id) }
+
+end 
