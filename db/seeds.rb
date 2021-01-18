@@ -12,25 +12,15 @@ DATA = {
         ["name", "weakness"],
     :types => [
         ["Vampire", "Vampirc Oil"],
-        ["Ogers", ""],
-        ["Relics", ""],
-        ["Wraiths", ""],
-        ["Old Ones", ""]
+        ["Wraiths", "Wraith Oil"]
     ],
-    :locations => [
-        ["Velen"],
-        ["Novigrad"]
-    ],
-    :user_keys =>
-        ["name", "password"],
-    :users => [
-        ["Example", "password"],
-        ["Another", "password"]
-    ],
+    :locations => ["Velen", "Novigrad"],
+    :users => ["Red Baron", "Dandelion"],
     :monster_keys =>
         ["name", "type_id"],
     :monsters => [
-        ["Jenny o' the woods", 4]
+        ["Jenny o' the woods", 2],
+        ["Dracula", 1]
     ],
     :witchers => [
         "Geralt",
@@ -38,20 +28,22 @@ DATA = {
         "Eskel"
     ],
     :contract_keys =>
-        ["reward", "user_id", "monster_id", "location_id"],
+        ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
-        [100, ]
+        [100, "Wraith in the woods", 1, 1, 1],
+        [50, "Missing lute", 2, 2, 2]
     ]
 }
 
 def main 
     make_schools
-    # make_users
-    # make_witchers
-    # make_locations
-    # make_types
-    # make_monsters 
-    # make_contracts 
+    make_locations
+    make_types
+    make_monsters
+    make_users
+    make_witchers 
+    make_contracts 
+    geralts_contract
 end
 
 def make_schools
@@ -61,18 +53,14 @@ def make_schools
 end
 
 def make_users
-    DATA[:users].each do |user|
-        new_user = User.new
-        user.each_with_index do |attribute, i|
-          new_user.send(DATA[:user_keys][i]+"=", attribute)
-        end
-        new_user.save
-      end
+    DATA[:users].each do |name|
+        User.create(name: name, school_id: 1, password: 'password')
+    end
 end
 
 def make_witchers
     DATA[:witchers].each do |name|
-      User.create(name: name, witcher: 1, password: 'password')
+        User.create(name: name, school_id: 3, password: 'password')
     end
 end
 
@@ -103,6 +91,17 @@ def make_monsters
 end
 
 def make_contracts
+    DATA[:contracts].each do |contract|
+        new_contract = Contract.new
+        contract.each_with_index do |attribute, i|
+            new_contract.send(DATA[:contract_keys][i]+"=", attribute)
+        end
+        new_contract.save 
+    end
+end
+
+def geralts_contract
+    Contract.first.claim_contract(User.find(3))
 end
 
 main
