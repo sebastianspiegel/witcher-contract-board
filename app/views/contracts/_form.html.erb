@@ -1,0 +1,11 @@
+<%= form_for(@contract) do |f| %>
+    <%= f.label :reward %>
+    <%= f.number_field :reward, step: 1, min: 5 %><br>
+    <%= f.label :details %>
+    <%= f.text_field :details %><br>
+    <%= f.label :monster %>
+    create or select here
+    <%= f.location %>
+    create or select here 
+    <%= f.submit %> 
+<% end %>
