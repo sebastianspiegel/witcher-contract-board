@@ -1,0 +1,10 @@
+<h2>Sign up</h2>
+
+<%= form_for @user do |f| %>
+    Name: <%= f.text_field :name %><br>
+    Password: <%= f.text_field :password %><br>
+    <br>
+    Witcher's Only:<br>
+    School: <%= f.collection_select(:user, :school, options={User.witcher_schools}) %><br>
+    <%= f.submit %>
+<% end %>
