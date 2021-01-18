@@ -1,0 +1,5 @@
+<h2>All types</h2>
+
+<% @types.each do |type| %>
+  <%= link_to type.name, type_path(type) %><br>
+<% end %>
