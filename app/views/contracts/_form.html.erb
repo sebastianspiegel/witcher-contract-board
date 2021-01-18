@@ -4,8 +4,8 @@
     <%= f.label :details %>
     <%= f.text_field :details %><br>
     <%= f.label :monster %>
-    create or select here
+    <%= monster_form_fields(f) %>
     <%= f.location %>
-    create or select here 
+    <%= location_form_fields(f) %>
     <%= f.submit %> 
 <% end %>

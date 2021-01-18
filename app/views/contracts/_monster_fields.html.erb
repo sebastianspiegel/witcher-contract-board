@@ -1,0 +1,8 @@
+Select a monster:
+<%= f.collect_select :monster_id, Monster.all, :id, :name %>
+
+Create a new monster:
+<%= f.fields_for :monster do |m| %>
+    <%= render partial: "brands/form", locals: { in_the_partial: b} %>
+<% end %>
+
