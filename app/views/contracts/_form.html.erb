@@ -1,11 +1,11 @@
 <%= form_for(@contract) do |f| %>
-    <%= f.label :reward %>
-    <%= f.number_field :reward, step: 1, min: 5 %><br>
     <%= f.label :details %>
-    <%= f.text_area :details %><br><br>
+    <%= f.text_area :details %><br>
+    <%= f.label :reward %>
+    <%= f.number_field :reward, step: 1, min: 5 %><br><br>
     <%= f.label :monster %><br>
     <%= monster_form_fields(f) %><br><br>
-    <%= f.label :location %>
-    location select here<br>
+    <%= f.label :location %><br>
+    <%= location_form_fields(f) %><br><br>
     <%= f.submit %> 
 <% end %>

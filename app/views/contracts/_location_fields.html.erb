@@ -1,0 +1,8 @@
+Select a location:
+<%= f.collection_select :location_id, Location.all, :id, :name %><br>
+
+Or create a new location:
+<%= f.fields_for :location do |l| %>
+    <%= render partial: "locations/form", locals: { in_the_partial: l } %>
+<% end %>
+

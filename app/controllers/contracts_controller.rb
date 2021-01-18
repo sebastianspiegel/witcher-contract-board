@@ -5,6 +5,7 @@ class ContractsController < ApplicationController
     end
 
     def create
+        byebug
     end
 
     def show
@@ -19,6 +20,12 @@ class ContractsController < ApplicationController
     end
 
     def update
+    end
+
+    private
+
+    def contract_params
+        params.permit(:contract).require(:details, :reward, :monster_id, :monster, :location_id, :location)
     end
 
 end
