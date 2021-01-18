@@ -8,4 +8,10 @@ class Contract < ActiveRecord::Base
         self.save 
     end
 
+    def contract_is_claimed?
+        !!self.claimed_id 
+    end
+
+    
+
 end
