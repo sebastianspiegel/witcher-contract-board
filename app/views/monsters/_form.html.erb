@@ -1,0 +1,4 @@
+
+<%= in_the_partial.text_field :name %>
+<%= in_the_partial.label(:type) %>
+<%= in_the_partial.collection_select :type_id, Type.all, :id, :name %>

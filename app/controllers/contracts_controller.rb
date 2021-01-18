@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
 
     def new 
+        @contract = Contract.new 
     end
 
     def create
@@ -11,7 +12,7 @@ class ContractsController < ApplicationController
     end
 
     def index 
-        @contracts = #only the unclaimed contracts 
+        @contracts = Contract.all #only the unclaimed contracts 
     end
 
     def edit

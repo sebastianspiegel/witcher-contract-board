@@ -11,7 +11,6 @@ class Contract < ActiveRecord::Base
     def contract_is_claimed?
         !!self.claimed_id 
     end
-
     
 
 end

@@ -10,6 +10,14 @@ module ContractsHelper
         end
     end
 
+    def monster_form_fields(f)
+        if @monster   # params[:brand_id]
+             f.hidden_field :monster_id, value: @monster.id 
+        else 
+             render partial: "monster_fields", locals: { f: f } 
+        end 
+   end
+
 end
 
 
