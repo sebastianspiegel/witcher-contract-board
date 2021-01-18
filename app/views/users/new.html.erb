@@ -1,10 +1,11 @@
 <h2>Sign up</h2>
 
-<%= form_for @user do |f| %>
+
+<%= form_tag ({controller: 'users', action: 'create', method: 'post'}) do %>
     Name: <%= f.text_field :name %><br>
-    Password: <%= f.text_field :password %><br>
+    Password: <%= password_field(:user, :password) %><br>
     <br>
     Witcher's Only:<br>
-    School: <%= f.collection_select(:user, :school, options={User.witcher_schools}) %><br>
-    <%= f.submit %>
-<% end %>
+    School: <%= collection_select(:user, :school_id, School.all,  ) %><br>
+    <%= submit_tag 'Sign Up' %>
+<% end %> 
