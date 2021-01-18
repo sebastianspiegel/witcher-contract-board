@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 DATA = {
+    :schools => ["None", "School of the Cat", "School of the Wolf", "School of the Bear"],
     :type_keys =>
         ["name", "weakness"],
     :types => [
@@ -44,12 +45,19 @@ DATA = {
 }
 
 def main 
+    make_schools
     # make_users
     # make_witchers
     # make_locations
     # make_types
     # make_monsters 
     # make_contracts 
+end
+
+def make_schools
+    DATA[:schools].each do |school|
+        School.create(name: school)
+    end
 end
 
 def make_users

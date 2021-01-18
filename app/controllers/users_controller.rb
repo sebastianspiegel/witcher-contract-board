@@ -17,5 +17,16 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
     end
+
+    private
+
+    def user_params
+        params.require(:user).permit(:name, :password, :school_id)
+    end
+
+    def witcher?
+        #is user a witcher?
+        User.find(session[:user.id]).school_id != 1
+    end
     
 end

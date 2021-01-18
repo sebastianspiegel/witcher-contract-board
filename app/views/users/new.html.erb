@@ -6,6 +6,6 @@
     Password: <%= password_field(:user, :password) %><br>
     <br>
     Witcher's Only:<br>
-    School: <%= collection_select(:user, :school_id, School.all, :school, :school) %><br>
+    School: <%= collection_select(:user, :school_id, School.all, :id, :name) %><br>
     <%= submit_tag 'Sign Up' %>
 <% end %> 
