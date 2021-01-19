@@ -17,6 +17,9 @@ class SessionsController < ApplicationController
         end
     end
 
+    def logout
+    end
+
     def destroy
         session.delete :user_id
         redirect_to '/'
