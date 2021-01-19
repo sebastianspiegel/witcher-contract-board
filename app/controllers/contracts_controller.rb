@@ -39,6 +39,11 @@ class ContractsController < ApplicationController
     def edit
         redirect_if_not_logged_in
         @contract = Contract.find(params[:id])
+        if @contract.claimed_id != nil
+            flash[:message] = "You cannot edit a contract that has been claimed."
+            redirect_to contract_path(@contract.id)
+        end
+
     end
 
     def update
@@ -51,6 +56,10 @@ class ContractsController < ApplicationController
 
     def contract_params
         params.require(:contract).permit(:details, :reward, monster_attributes: [:name, :type_id], location_attributes: [:name])
+    end
+
+    def cannot_edit_claimed_contract
+        redirect_to contract_path(@contract.id) if @contract.claimed_id != nil
     end
 
     # def current_user
