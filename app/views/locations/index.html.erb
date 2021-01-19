@@ -1,3 +1,6 @@
 <% @locations.each do |location| %>
   <%= location.name %><br>
+  Current number of contracts: <%= location.contracts.count %><br>
+  Types of monsters at this location: <%= location.monsters.map {|monster| monster.type.name.to_s + ", "} %>
+  <br><br>
 <% end %>
