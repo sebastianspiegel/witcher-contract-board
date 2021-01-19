@@ -1,4 +1,4 @@
-
+<br><br>
 Monster: <%= @contract.monster.name %><br>
 Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
@@ -6,5 +6,9 @@ Details: <%= @contract.details %><br>
 Posted by: <%= @contract.user.name %>
 
 <% if @user.witcher? %>
-  Link here to claim a contract (check out the amusement park take ride button?)
+  <br><br>Link here to claim a contract (check out the amusement park take ride button?)
+<% end %>
+
+<% if @user == @contract.user %>
+    <br><br><%= link_to "Edit contract", edit_contract_path(@contract.id) %>
 <% end %>

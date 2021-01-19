@@ -3,3 +3,6 @@
 <% @monsters.each do |monster| %>
   <%= link_to monster.name, monster_path(monster) %><br>
 <% end %>
+
+<br><br>
+<%= link_to "Add new monster", new_monster_path %>
