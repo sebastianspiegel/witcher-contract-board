@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
 
     def new 
+        redirect_if_not_logged_in
         @contract = Contract.new 
         @contract.build_monster
         @contract.build_location 
@@ -34,6 +35,7 @@ class ContractsController < ApplicationController
     end
 
     def edit
+        redirect_if_not_logged_in
         @contract = Contract.find(params[:id])
     end
 

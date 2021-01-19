@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
     end
 
     def logout
+        redirect_if_not_logged_in
     end
 
     def destroy

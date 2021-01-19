@@ -9,16 +9,17 @@ class MonstersController < ApplicationController
     end
 
     def new 
+        redirect_if_not_logged_in
         @monster = Monster.new 
     end
 
     def create
-    
         @monster = Monster.create(monster_params)
         redirect_to monster_path(@monster.id)
     end
 
     def edit
+        redirect_if_not_logged_in
         @monster = Monster.find(params[:id])
     end
 
