@@ -107,7 +107,7 @@ def make_contracts
 end
 
 def geralts_contract
-    Contract.first.claim_contract(User.find(3))
+    Contract.first.claim_contract(User.find(6))
 end
 
 main

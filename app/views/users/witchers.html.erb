@@ -1,3 +1,5 @@
 <% @witchers.each do |witcher| %>
   <%= witcher.name %><br>
+  Number of contracts claimed: <%= witcher.witcher_contracts.count %><br>
+  <br>
 <% end %>
