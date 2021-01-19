@@ -2,12 +2,14 @@
 
 <% if @user.witcher? %>
   <h3><%= @user.school.name %></h3>
-  Claimed contracts: <br><br>
 <% end %> 
 
+<% if session[:user_id] == @user.id %>
+Claimed contracts: <br><br>
 <% @contracts.each do |contract| %>
   <%= contract.monster.name %><br>
   Type: <%= contract.monster.type.name %><br>
   Reward: <%= contract.reward %> coins <br>
   <%= render partial: "claimed_or_posted", locals: {contract: contract} %>
+<% end %>
 <% end %>
