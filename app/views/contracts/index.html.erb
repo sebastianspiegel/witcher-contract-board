@@ -2,7 +2,7 @@
 
 <% @contracts.each do |contract| %>
    <% if !contract.contract_is_claimed? %>
-     <%= link_to contract.monster.name, contract_path(contract.id) %><br>
+     <%= link_to contract.monster.name, contract_path(contract.id) %> - <%= contract.location.name %><br>
    <% end %>
 <% end %>
 

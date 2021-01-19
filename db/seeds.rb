@@ -11,7 +11,6 @@ DATA = {
     :type_keys =>
         ["name", "weakness"],
     :types => [
-        ["Create new", "empty on purpose"],
         ["Vampire", "Igni"],
         ["Specter", "Igni"],
         ["Cursed One", "Quen"],
@@ -23,21 +22,20 @@ DATA = {
         ["Ogroid", "Quen"],
         ["Relict", "Igni"]
     ],
-    :locations => ["Create new", "Velen", "Novigrad"],
+    :locations => ["Velen", "Novigrad"],
     :users => ["The Bloody Baron", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
         ["name", "type_id"],
     :monsters => [
-        ["Create new", 1],
-        ["Jenny o' the woods", 3],
-        ["Dracula", 2]
+        ["Jenny o' the woods", 2],
+        ["Dracula", 1]
     ],
     :witchers => ["Geralt", "Lambert", "Eskel"],
     :contract_keys =>
         ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
-        [100, "Wraith in the woods", 1, 2, 2],
-        [50, "Missing lute", 2, 3, 3]
+        [100, "Wraith in the woods", 1, 1, 1],
+        [50, "Missing lute", 2, 2, 2]
     ]
 }
 

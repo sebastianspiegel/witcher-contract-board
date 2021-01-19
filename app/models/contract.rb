@@ -2,8 +2,7 @@ class Contract < ActiveRecord::Base
     belongs_to :user
     belongs_to :monster
     belongs_to :location 
-    accepts_nested_attributes_for :monster
-    accepts_nested_attributes_for :location
+    accepts_nested_attributes_for :monster, :location
 
     def claim_contract(user)
         self.claimed_id = user.id

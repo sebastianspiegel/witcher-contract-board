@@ -1,5 +1,5 @@
 Select a monster:
-<%= f.collection_select :monster_id, Monster.all, :id, :name %><br>
+<%= f.collection_select :monster_id, Monster.all, :id, :name, prompt: true %><br>
 
 Or create a new monster:
 <%= f.fields_for :monster do |m| %>

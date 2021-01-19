@@ -1,5 +1,5 @@
 Select a location:
-<%= f.collection_select :location_id, Location.all, :id, :name %><br>
+<%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %><br>
 
 Or create a new location:
 <%= f.fields_for :location do |l| %>
