@@ -9,7 +9,7 @@ Posted by: <%= @contract.user.name %><br>
 <% end %>
 
 <% if @user.witcher? %>
-  <br><br>Link here to claim a contract (check out the amusement park take ride button?)
+  <br><br> <%= link_to "Claim Contract", edit_contract_path(@contract.id) %>
 <% end %>
 
 <% if @user == @contract.user %>
