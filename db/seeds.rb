@@ -28,14 +28,16 @@ DATA = {
         ["name", "type_id"],
     :monsters => [
         ["Jenny o' the woods", 2],
-        ["Dracula", 1]
+        ["Dracula", 1],
+        ["Wham Wham", 9]
     ],
     :witchers => ["Geralt", "Lambert", "Eskel"],
     :contract_keys =>
         ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
         [100, "Wraith in the woods", 1, 1, 1],
-        [50, "Missing lute", 2, 2, 2]
+        [50, "Missing lute", 2, 2, 2],
+        [150, "Trolls in the woods causing problems", 3, 3, 1]
     ]
 }
 
@@ -47,7 +49,7 @@ def main
     make_users
     make_witchers 
     make_contracts 
-    geralts_contract
+    assign_contracts
 end
 
 def make_schools
@@ -104,8 +106,9 @@ def make_contracts
     end
 end
 
-def geralts_contract
+def assign_contracts
     Contract.first.claim_contract(User.find(6))
+    Contract.last.claim_contract(User.find(7))
 end
 
 main

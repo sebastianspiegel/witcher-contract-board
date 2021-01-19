@@ -1,13 +1,12 @@
 <h2><%= @user.name %></h2>
 
-<% if @user.witcher? %> 
-  <h3><%= @user.school.name %></h3>
-  Claimed contracts: <br><br>
-<% else %>
-  Posted contracts: <br><br>
-<% end %> 
+  <% if @user.witcher? %>
+    <h3><%= @user.school.name %></h3>
+  <% end %>
 
-<% if session[:user_id] == @user.id %>
+  <% if @user.witcher? && @user = current_user %>
+    <h4>Claimed contracts:</h4> 
+  <% elsif !@user.witcher? %>
+    <h4>Posted contracts:</h4> 
+  <% end %>
   <%= render partial: "contracts" %>
-<% end %>
-

@@ -1,0 +1,7 @@
+
+
+<% if contract.claimed_id == nil%>
+    Unclaimed <br>
+<% else %>
+    Claimed by: <%= User.find(contract.claimed_id).name %><br>
+<% end %>
