@@ -1,5 +1,7 @@
 class ContractsController < ApplicationController
 
+    include ContractsHelper
+
     def new 
         redirect_if_not_logged_in
         @contract = Contract.new 
@@ -51,8 +53,8 @@ class ContractsController < ApplicationController
         params.require(:contract).permit(:details, :reward, monster_attributes: [:name, :type_id], location_attributes: [:name])
     end
 
-    def current_user
-        User.find(session[:user_id])
-    end
+    # def current_user
+    #     User.find(session[:user_id])
+    # end
 
 end
