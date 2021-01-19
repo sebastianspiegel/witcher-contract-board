@@ -1,5 +1,10 @@
 <% if current_user.witcher? %>
     Posted by: <%= contract.user.name %> <br><br>
 <% else %>
-    Claimed by: <%= User.find(contract.claimed_id).name %><br>
+    <% if contract.claimed_id == nil%>
+        Unclaimed <br>
+    <% else %>
+        Claimed by: <%= User.find(contract.claimed_id).name %><br>
+    <% end %>
+    <br>
 <% end %>

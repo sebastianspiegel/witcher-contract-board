@@ -12,12 +12,14 @@ class ContractsController < ApplicationController
     def create
         @contract = Contract.new(contract_params)
         @contract.user = current_user
-        if params[:monster_id]
-            @monster = Monster.find(params[:monster_id])
+        if params[:contract][:monster_id]
+            @contract.monster = Monster.find(params[:contract][:monster_id])
+        else
+            Monster.new(params[:monster_attributes])
         end
 
-        if params[:location_id]
-            @location = Location.find(params[:location_id])
+        if params[:contract][:location_id]
+            @contract.location = Location.find(params[:contract][:location_id])
         end
 
         if @contract.save
@@ -44,7 +46,10 @@ class ContractsController < ApplicationController
     def edit
         redirect_if_not_logged_in
         @contract = Contract.find(params[:id])
-        if @contract.claimed_id != nil
+        if @contract.user != current_user
+            flash[:message] = "You cannot edit this contract."
+            redirect_to contract_path(@contract.id)
+        elsif @contract.claimed_id != nil
             flash[:message] = "You cannot edit a contract that has been claimed."
             redirect_to contract_path(@contract.id)
         end
@@ -60,11 +65,7 @@ class ContractsController < ApplicationController
     private
 
     def contract_params
-        params.require(:contract).permit(:details, :reward, monster_attributes: [:name, :type_id], location_attributes: [:name])
+        params.require(:contract).permit(:details, :reward, :monster_id, :location_id, monster_attributes: [:name, :type_id], location_attributes: [:name])
     end
-
-    # def current_user
-    #     User.find(session[:user_id])
-    # end
 
 end
