@@ -8,12 +8,14 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#logout'
   post '/logout' => 'sessions#destroy'
 
+  get '/users/witchers' => 'users#witchers'
+
   resources :users, only: [:new, :show, :create]
 
   resources :contracts 
 
   resources :monsters 
-  
+
   resources :types, only: [:show, :index] do
     resources :monsters, only: [:new, :index, :create, :show]
   end

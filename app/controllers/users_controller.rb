@@ -23,6 +23,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def witchers
+        @witchers = User.all_witchers 
+    end
+
     private 
 
     def user_params

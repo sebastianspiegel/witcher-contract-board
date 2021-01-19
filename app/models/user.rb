@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
         Contract.where(claimed_id: self.id) 
     end
 
+    def self.all_witchers
+        where("school_id NOT IN (1)")
+    end
+
     # scope :witcher_contracts, -> { Contract.where(claimed_id: self.id) }
 
 end 
