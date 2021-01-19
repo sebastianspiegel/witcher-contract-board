@@ -7,16 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 DATA = {
-    :schools => ["None", "School of the Cat", "School of the Wolf", "School of the Bear"],
+    :schools => ["None", "School of the Cat", "School of the Wolf", "School of the Bear", "School of the Viper"],
     :type_keys =>
         ["name", "weakness"],
     :types => [
-        ["Empty", "on purpose"],
-        ["Vampire", "Vampirc Oil"],
-        ["Wraiths", "Wraith Oil"]
+        ["Create new", "empty on purpose"],
+        ["Vampire", "Igni"],
+        ["Specter", "Igni"],
+        ["Cursed One", "Quen"],
+        ["Draconid", "Aard"],
+        ["Elementa", "Aard"],
+        ["Hybrid", "Aard"],
+        ["Insectoid", "Golden Oriole"],
+        ["Necrophages", "Axii"],
+        ["Ogroid", "Quen"],
+        ["Relict", "Igni"]
     ],
     :locations => ["Create new", "Velen", "Novigrad"],
-    :users => ["Red Baron", "Dandelion"],
+    :users => ["The Bloody Baron", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
         ["name", "type_id"],
     :monsters => [
@@ -24,11 +32,7 @@ DATA = {
         ["Jenny o' the woods", 3],
         ["Dracula", 2]
     ],
-    :witchers => [
-        "Geralt",
-        "Lambert",
-        "Eskel"
-    ],
+    :witchers => ["Geralt", "Lambert", "Eskel"],
     :contract_keys =>
         ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
