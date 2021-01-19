@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_142016) do
+ActiveRecord::Schema.define(version: 2021_01_19_235210) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer "reward"
     t.text "details"
-    t.integer "claimed_id"
     t.integer "user_id"
     t.integer "monster_id"
     t.integer "location_id"
@@ -53,6 +52,13 @@ ActiveRecord::Schema.define(version: 2021_01_18_142016) do
     t.string "name"
     t.string "password_digest"
     t.integer "school_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "witchers_contracts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contract_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

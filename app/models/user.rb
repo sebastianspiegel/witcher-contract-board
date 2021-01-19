@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     has_many :contracts 
     has_many :monsters, through: :contracts 
     belongs_to :school 
+    has_many :witcherscontracts 
 
     def witcher?
         self.school_id != 1

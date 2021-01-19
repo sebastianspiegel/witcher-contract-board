@@ -3,7 +3,6 @@ class CreateContracts < ActiveRecord::Migration[6.1]
     create_table :contracts do |t|
       t.integer :reward
       t.text :details 
-      t.integer :claimed_id 
       t.integer :user_id
       t.integer :monster_id
       t.integer :location_id

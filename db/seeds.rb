@@ -49,7 +49,7 @@ def main
     make_users
     make_witchers 
     make_contracts 
-    assign_contracts
+    # assign_contracts
 end
 
 def make_schools
