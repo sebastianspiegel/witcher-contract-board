@@ -1,8 +1,13 @@
 <h2>All monsters</h2>
 
-<% @monsters.each do |monster| %>
-  <%= link_to monster.name, monster_path(monster) %><br>
+<% @types.each do |type| %>
+  <%= type.name.pluralize %>:<br>
+  <% type.monsters.each do |monster| %>
+    <%= link_to monster.name, monster_path(monster) %><br>
+  <% end %>
+  <br>
 <% end %>
+
 
 <br><br>
 <%= link_to "Add new monster", new_monster_path %>

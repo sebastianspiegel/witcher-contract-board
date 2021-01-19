@@ -6,6 +6,7 @@ class MonstersController < ApplicationController
 
     def index
         @monsters = Monster.all[1..-1]
+        @types = Type.all[1..-1]
     end
 
     def new 
