@@ -13,6 +13,7 @@ class MonstersController < ApplicationController
     end
 
     def create
+    
         @monster = Monster.create(monster_params)
         redirect_to monster_path(@monster.id)
     end
@@ -21,14 +22,22 @@ class MonstersController < ApplicationController
         @monster = Monster.find(params[:id])
     end
 
-    def patch
-        @monster = Monster.update(monster_params)
+    def update
+        @monster = Monster.find(params[:id])
+        @monster.update(monster_params)
+        redirect_to monster_path(@monster.id)
+    end
+
+    def destroy
+        @monster = Monster.find(params[:id])
+        @monster.destroy 
+        redirect_to monsters_path 
     end
 
 
     private
 
     def monster_params
-        params.permit(:monster[:name], :monster[:type_id])
+        params.require(:monster).permit(:name, :type_id)
     end
 end

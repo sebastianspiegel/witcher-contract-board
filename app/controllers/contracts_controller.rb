@@ -5,6 +5,7 @@ class ContractsController < ApplicationController
     end
 
     def create
+        byebug
         @contract = Contract.new(details: params[:contract][:details], reward: params[:contract][:reward], user_id: session[:user_id])
         if params[:contract][:monster_id] != "1"
             @contract.monster_id = params[:contract][:monster_id]
@@ -33,15 +34,19 @@ class ContractsController < ApplicationController
     end
 
     def edit
+        @contract = Contract.find(params[:id])
     end
 
     def update
+        @contract = Contract.find(params[:id])
+        @contract.update(contract_params)
     end
 
     private
 
     def contract_params
-        params.permit(:contract).require(:details, :reward, :monster_id, :monster, :location_id, :location)
+        # params.permit(:contract).require(:details, :reward, :monster_id, :monster, :location_id, :location)
+        params.permit(:contract).require(:details, :reward, monster_attributes: [:monster], location_attributes: [:location])
     end
 
 end
