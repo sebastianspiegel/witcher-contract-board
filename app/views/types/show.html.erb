@@ -5,3 +5,6 @@ Monsters of this type:<br>
 <% @type.monsters.each do |monster| %>
   <%= link_to monster.name, monster_path(monster) %><br>
 <% end %>
+
+<br><br>
+<%= link_to "Create a new #{@type.name} monster", new_type_monster_path(@type.id) %>
