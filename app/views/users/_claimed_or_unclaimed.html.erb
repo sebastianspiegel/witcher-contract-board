@@ -1,7 +1,5 @@
-
-
 <% if contract.claimed_id == nil%>
     Unclaimed <br>
 <% else %>
-    Claimed by: <%= User.find(contract.claimed_id).name %><br>
+    Claimed by: <%= link_to User.find(contract.claimed_id).name, user_path(User.find(contract.claimed_id).id) %><br>
 <% end %>

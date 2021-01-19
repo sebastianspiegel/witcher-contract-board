@@ -2,6 +2,6 @@
   <%= contract.monster.name %><br>
   Type: <%= contract.monster.type.name %><br>
   Reward: <%= contract.reward %> coins <br>
-  Posted by: <%= contract.user.name %> <br>
+  Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br>
   <%= render partial: "claimed_or_unclaimed", locals: {contract: contract} %>
 <% end %>
