@@ -4,7 +4,9 @@ Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
 Details: <%= @contract.details %><br>
 Posted by: <%= @contract.user.name %><br>
-Claimed by: <%= User.find(@contract.claimed_id).name %>
+<% if @contract.claimed_id != nil %>
+    Claimed by: <%= User.find(@contract.claimed_id).name %>
+<% end %>
 
 <% if @user.witcher? %>
   <br><br>Link here to claim a contract (check out the amusement park take ride button?)

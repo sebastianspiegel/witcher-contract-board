@@ -30,6 +30,11 @@ class ContractsController < ApplicationController
     def show
         @contract = Contract.find(params[:id])
         @user = User.find(session[:user_id])
+        if @contract.claimed_id != nil 
+            if @contract.claimed_id != @user.id || @contract.user_id != current_user
+                redirect_to contracts_path
+            end
+        end
     end
 
     def index 
@@ -56,10 +61,6 @@ class ContractsController < ApplicationController
 
     def contract_params
         params.require(:contract).permit(:details, :reward, monster_attributes: [:name, :type_id], location_attributes: [:name])
-    end
-
-    def cannot_edit_claimed_contract
-        redirect_to contract_path(@contract.id) if @contract.claimed_id != nil
     end
 
     # def current_user
