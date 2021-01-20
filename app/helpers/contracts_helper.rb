@@ -3,7 +3,7 @@ module ContractsHelper
     def all_unclaimed_contracts
         @unclaimed_contracts = []
         Contract.all.map do |contract|
-            if !contract.contract_is_claimed?
+            if !contract_is_claimed?(contract)
                 @unclaimed_contracts << contract 
             end
             @unclaimed_contracts

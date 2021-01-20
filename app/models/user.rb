@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
         self.school_id != 1
     end
 
-    def witcher_contracts
-        Contract.where(claimed_id: self.id) 
+    def all_of_a_witchers_contracts
+        Contract.where(id: )#matches witcherscontract contract_id
     end
 
     def self.all_witchers

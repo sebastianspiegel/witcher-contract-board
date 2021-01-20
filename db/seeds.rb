@@ -49,7 +49,7 @@ def main
     make_users
     make_witchers 
     make_contracts 
-    # assign_contracts
+    assign_contracts
 end
 
 def make_schools
@@ -107,8 +107,10 @@ def make_contracts
 end
 
 def assign_contracts
-    Contract.first.claim_contract(User.find(6))
-    Contract.last.claim_contract(User.find(7))
+    w = WitchersContract.new
+    w.contract = Contract.first
+    w.user = User.find_by(name: "Geralt")
+    w.save
 end
 
 main

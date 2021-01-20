@@ -4,8 +4,8 @@ Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
 Details: <%= @contract.details %><br>
 Posted by: <%= @contract.user.name %><br>
-<% if @contract.claimed_id != nil %>
-    Claimed by: <%= User.find(@contract.claimed_id).name %>
+<% if @contract.contract_is_claimed? %>
+    Claimed by: <%= WitchersContract.find_by(contract_id: @contract.id).user.name %>
 <% end %>
 
 <% if @user.witcher? %>

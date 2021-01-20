@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         if @user.witcher? 
-            @contracts = @user.witcher_contracts
+            @contracts = @user.all_of_a_witchers_contracts
         else 
             @contracts = @user.contracts
         end
