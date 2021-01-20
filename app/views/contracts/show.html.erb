@@ -8,8 +8,8 @@ Posted by: <%= @contract.user.name %><br>
     Claimed by: <%= WitchersContract.find_by(contract_id: @contract.id).user.name %>
 <% end %>
 
-<% if @user.witcher? %>
-  <br><br> <%= link_to "Claim Contract", edit_contract_path(@contract.id) %>
+<% if @user.witcher? && !@contract.contract_is_claimed?%>
+  <br><br> <%= button_to "Claim Contract", action: "create", controller: "witchers_contracts", options: { params: {user_id: @user.id, contract_id: @contract.id} } %>
 <% end %>
 
 <% if @user == @contract.user %>

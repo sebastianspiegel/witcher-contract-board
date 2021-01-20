@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   
   resources :locations, only: [:index]
 
+  resources :witchers_contracts, only: [:create]
+
 end
