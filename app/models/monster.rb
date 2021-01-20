@@ -3,5 +3,6 @@ class Monster < ActiveRecord::Base
     has_many :users, through: :contracts 
     belongs_to :type 
     validates :name, uniqueness: true, presence: true
+    validates :type, presence: true 
 
 end

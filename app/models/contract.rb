@@ -16,6 +16,5 @@ class Contract < ActiveRecord::Base
             WitchersContract.find_by(contract_id: self.id).user
         end
     end
-    
 
 end

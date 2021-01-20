@@ -26,9 +26,30 @@ module ContractsHelper
         end
     end
 
+    def show_claimed_by
+        if @contract.contract_is_claimed? 
+            "Claimed by: #{WitchersContract.find_by(contract_id: @contract.id).user.name}"
+        end
+    end
+
+    def show_claim_button
+        if @user.witcher? && !@contract.contract_is_claimed?
+            button_to 'Claim Contract', action: 'create', controller: 'witchers_contracts', options: { params: {user_id: @user.id, contract_id: @contract.id} }
+        end
+    end
+
+    def show_edit_link
+        if @user == @contract.user
+            link_to 'Edit contract', edit_contract_path(@contract.id)
+        end
+    end
+
+    def available_contracts
+        @contracts.map do |contract|
+            if !contract.contract_is_claimed?
+                link_to contract.monster.name, contract_path(contract.id)
+            end
+        end
+    end
+
 end
-
-
-#link_to contract.monster.name, contract_path(contract) + " #{contract.location.name}" + " #{contract.reward}"
-
-#"#{contract.monster.name}" + " #{contract.location.name}" + " #{contract.reward}"

@@ -3,5 +3,5 @@
   Type: <%= contract.monster.type.name %><br>
   Reward: <%= contract.reward %> coins <br>
   Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br>
-  <%= render partial: "claimed_or_unclaimed", locals: {contract: contract} %>
+  <%= render partial: "claimed_or_unclaimed", locals: {contract: contract} %><br>
 <% end %>

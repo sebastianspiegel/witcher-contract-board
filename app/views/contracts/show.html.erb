@@ -3,15 +3,12 @@ Monster: <%= @contract.monster.name %><br>
 Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
 Details: <%= @contract.details %><br>
-Posted by: <%= link_to @contract.user.name, user_path(@contract.user.id) %><br>
-<% if @contract.contract_is_claimed? %>
-    Claimed by: <%= WitchersContract.find_by(contract_id: @contract.id).user.name %>
-<% end %>
+Posted by: <%= link_to @contract.user.name, user_path(@contract.user.id) %><br><br>
 
-<% if @user.witcher? && !@contract.contract_is_claimed?%>
-  <br><br> <%= button_to "Claim Contract", action: "create", controller: "witchers_contracts", options: { params: {user_id: @user.id, contract_id: @contract.id} } %>
-<% end %>
+<%= show_claimed_by %>
 
-<% if @user == @contract.user %>
-    <br><br><%= link_to "Edit contract", edit_contract_path(@contract.id) %>
-<% end %>
+<%= show_claim_button %>
+
+<%= show_edit_link %>
+
+
