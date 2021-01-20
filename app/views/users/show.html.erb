@@ -1,19 +1,7 @@
 <h2><%= @user.name %></h2>
 
-  <% if @user.witcher? %>
-    <h3><%= @user.school.name %></h3>
-  <% end %>
+<%= show_school %>
 
-  <% if @user.witcher? && @user = current_user %>
-    <h4>Claimed contracts:</h4> 
-    <% @contracts.each do |contract| %>
-      <%= contract.monster.name %><br>
-      Type: <%= contract.monster.type.name %><br>
-      Reward: <%= contract.reward %> coins <br>
-      Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br><br>
-    <% end %>
-  <% elsif !@user.witcher? %>
-    <h4>Posted contracts:</h4> 
-    <%= render partial: "contracts" %>
-  <% end %>
-  
+<%= claimed_or_posted_by %>
+   
+<%= render partial: "contracts" %>
