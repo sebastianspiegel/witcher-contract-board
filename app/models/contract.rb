@@ -9,6 +9,12 @@ class Contract < ActiveRecord::Base
     def contract_is_claimed?
         WitchersContract.find_by(contract_id: self.id) ? true : false 
     end
+
+    def claimed_by
+        if contract_is_claimed?
+            WitchersContract.find_by(contract_id: self.id).user
+        end
+    end
     
 
 end

@@ -34,8 +34,8 @@ class ContractsController < ApplicationController
     def show
         @contract = Contract.find(params[:id])
         @user = User.find(session[:user_id])
-        if @contract.claimed_id != nil 
-            if @contract.claimed_id != @user.id || @contract.user_id != current_user
+        if @contract.contract_is_claimed?
+            if @contract.claimed_by != @user || @contract.user_id != current_user
                 redirect_to contracts_path
             end
         end

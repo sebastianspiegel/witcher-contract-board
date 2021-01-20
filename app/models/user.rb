@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
     end
 
     def all_of_a_witchers_contracts
-        Contract.where(id: )#matches witcherscontract contract_id
+        # WitchersContract.where(user_id: user.id)
+        wc = WitchersContract.where(user_id: self.id).map {|n| n.contract_id}
+        wc.map {|c| Contract.find(c)}
     end
 
     def self.all_witchers
