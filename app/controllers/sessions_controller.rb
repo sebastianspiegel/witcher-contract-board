@@ -6,6 +6,16 @@ class SessionsController < ApplicationController
     def new
     end
 
+    def omniauth
+        user = User.from_omniauth(request.env['omniauth.auth'])
+        if user.valid?
+            session[:user_id] = user.id
+            redirect_to user_path(user)
+        else
+            redirect_to '/signin'
+        end
+    end
+
     def create
         if params[:user][:name] == nil || params[:user][:name] == ""
             redirect_to signin_path

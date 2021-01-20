@@ -5,3 +5,7 @@
     Password: <%= password_field(:user, :password) %><br>
     <%= submit_tag 'Sign In' %>
 <% end %> 
+<br>
+<%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+<br>
+<%= link_to "Sign up", new_user_path %>

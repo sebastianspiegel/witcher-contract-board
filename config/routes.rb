@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   resources :witchers_contracts, only: [:create]
 
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+
 end

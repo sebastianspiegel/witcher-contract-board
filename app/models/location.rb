@@ -16,4 +16,5 @@ class Location < ApplicationRecord
     def regional_types
         self.monsters.map {|monster| monster.type}.map {|type| type.name}
     end
+    
 end
