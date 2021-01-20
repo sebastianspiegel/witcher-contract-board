@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_many :monsters, through: :contracts 
     belongs_to :school 
     has_many :witcherscontracts 
+    validates :name, uniqueness: true, presence: true
 
     def witcher?
         self.school_id != 1

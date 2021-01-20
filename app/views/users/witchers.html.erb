@@ -1,5 +1,5 @@
 <% @witchers.each do |witcher| %>
-  <%= witcher.name %><br>
-  Number of contracts claimed: <%= witcher.witcher_contracts.count %><br>
+  <%= link_to witcher.name, user_path(witcher.id) %><br>
+  Number of contracts claimed: <%= witcher.all_of_a_witchers_contracts.count %><br>
   <br>
 <% end %>

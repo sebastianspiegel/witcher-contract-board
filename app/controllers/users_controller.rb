@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        redirect_if_not_logged_in
         @user = User.find(params[:id])
         if @user.witcher? 
             @contracts = @user.all_of_a_witchers_contracts
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def witchers
-        @witchers = User.all_witchers 
+        @witchers = User.all_witchers
     end
 
     private 

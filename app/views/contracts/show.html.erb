@@ -3,7 +3,7 @@ Monster: <%= @contract.monster.name %><br>
 Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
 Details: <%= @contract.details %><br>
-Posted by: <%= @contract.user.name %><br>
+Posted by: <%= link_to @contract.user.name, user_path(@contract.user.id) %><br>
 <% if @contract.contract_is_claimed? %>
     Claimed by: <%= WitchersContract.find_by(contract_id: @contract.id).user.name %>
 <% end %>

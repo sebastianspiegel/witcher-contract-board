@@ -4,6 +4,7 @@ class Contract < ActiveRecord::Base
     belongs_to :location 
     has_many :witcherscontracts 
     accepts_nested_attributes_for :monster, :location 
+    validates :details, presence: true
 
 
     def contract_is_claimed?

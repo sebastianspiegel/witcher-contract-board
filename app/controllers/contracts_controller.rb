@@ -51,11 +51,10 @@ class ContractsController < ApplicationController
         if @contract.user != current_user
             flash[:message] = "You cannot edit this contract."
             redirect_to contract_path(@contract.id)
-        elsif @contract.claimed_id != nil
+        elsif @contract.contract_is_claimed?  
             flash[:message] = "You cannot edit a contract that has been claimed."
             redirect_to contract_path(@contract.id)
         end
-
     end
 
     def update
