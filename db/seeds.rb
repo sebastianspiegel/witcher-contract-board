@@ -118,7 +118,7 @@ def make_contracts
 end
 
 def assign_contracts
-    Contract.first.witcher_id = User.find(6)
+    Contract.first.update(witcher_id: 6)
 end
 
 main

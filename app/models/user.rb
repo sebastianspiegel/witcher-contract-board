@@ -2,10 +2,8 @@ class User < ActiveRecord::Base
     has_secure_password
     has_many :contracts 
     has_many :monsters, through: :contracts 
-    #has many claimed_cotracts (specific class to look at and forgien key claimed_id)
     has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract"
     belongs_to :school 
-    has_many :witcherscontracts 
     validates :name, uniqueness: true, presence: true
 
     def self.from_omniauth(response)
@@ -21,8 +19,7 @@ class User < ActiveRecord::Base
     end
 
     def all_of_a_witchers_contracts
-        wc = WitchersContract.where(user_id: self.id).map {|n| n.contract_id}
-        wc.map {|c| Contract.find(c)}
+       self.claimed_contracts
     end
 
     def self.all_witchers
