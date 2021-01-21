@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <div>
+    <div class="header">
+    <h1>Digital Witcher Notice Board</h1>
+    <div class="nav">
       <% if session[:user_id] %>
         <% if current_user.witcher? %>
           <%= link_to "Available Contracts", contracts_path %> | 
@@ -24,6 +26,7 @@
         <%= link_to "Sign In", signin_path %>
       <% end %>
       <br><br>
+    </div>
     </div>
     <div><%= flash[:message] %></div>
     <%= yield %>

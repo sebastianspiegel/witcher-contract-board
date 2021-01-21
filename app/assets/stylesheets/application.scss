@@ -13,13 +13,9 @@
 
  */
 
- @import "bootstrap";
-
 body {
     background-color: rgb(58, 56, 56); 
     color: white; 
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
 }
 
 a:link {             
@@ -30,4 +26,19 @@ a:hover {
 }
 a:visited {
     color: rgb(153, 0, 153);
+}
+
+.header {
+    background: rgba(255, 0, 0, 0.397);
+    background-size: cover;
+    height: 60px;
+    text-align: center;
+}
+
+.nav {
+    background: #000;
+    height: 25px; 
+    width: 100%;
+    text-align: left;
+    padding: 10;
 }
