@@ -29,7 +29,10 @@ DATA = {
     :monsters => [
         ["Jenny o' the woods", 2],
         ["Dracula", 1],
-        ["Wham Wham", 9]
+        ["Wham Wham", 9],
+        ["Alghoul", 8],
+        ["Arachasae", 7],
+        ["Harpy", 6]
     ],
     :witcher_keys => 
         ["name", "school_id", "password"],
@@ -44,7 +47,11 @@ DATA = {
     :contracts => [
         [100, "Wraith in the woods", 1, 1, 1],
         [50, "Missing lute last seen being whisked away by a man with bloody fangs.", 2, 2, 2],
-        [150, "Trolls in the woods causing problems", 3, 3, 1]
+        [150, "Trolls in the woods causing problems", 3, 3, 1],
+        [100, "Harpies attacking my ships", 4, 6, 5],
+        [75, "Something stole my cow", 5, 6, 6],
+        [100, "Monsters stalking the herds at night", 1, 4, 1],
+        [200, "Beats need to be killed", 2, 4, 1]
     ]
 }
 
@@ -119,6 +126,8 @@ end
 
 def assign_contracts
     Contract.first.update(witcher_id: 6)
+    Contract.find(2).update(witcher_id: 6)
+    Contract.find(3).update(witcher_id: 7)
 end
 
 main

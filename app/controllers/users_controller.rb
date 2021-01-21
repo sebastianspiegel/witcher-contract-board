@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         redirect_if_not_logged_in
         @user = User.find(params[:id])
         if @user.witcher? 
-            @contracts = @user.all_of_a_witchers_contracts
+            @contracts = @user.claimed_contracts
         else 
             @contracts = @user.contracts
         end

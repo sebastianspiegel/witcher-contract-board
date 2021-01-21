@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     has_secure_password
     has_many :contracts 
     has_many :monsters, through: :contracts 
-    has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract"
+    has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract" 
     belongs_to :school 
     validates :name, uniqueness: true, presence: true
 
@@ -15,25 +15,30 @@ class User < ActiveRecord::Base
     end
 
     def witcher?
-        self.school_id != 1
+        school_id != 1
     end
 
-    def all_of_a_witchers_contracts
-       self.claimed_contracts
-    end
+    # def all_of_a_witchers_contracts
+    #     self.claimed_contracts 
+    #     i know this is redundant, just reminding myself it exists 
+    # end
 
     def self.all_witchers
         where("school_id NOT IN (1)")
         #rewrite V
+        # scope :all_witchers, 
     end
 
-   # scope :all_witchers, 
+
 
     def total_rewards
         # add up all the rewards from all the contracts a witcher has claimed 
-        all_of_a_witchers_contracts.map {|contract| contract.reward}
-    end
+        # SELECT SUM(contracts.reward) FROM  contracts JOIN users ON contracts.witcher_id = users.id ORDER BY contracts.witcher_id
+        claimed_contracts.sum(:reward)
 
-    # scope :witcher_contracts, -> { Contract.where(claimed_id: self.id) }
+        # User.find(6).total_rewards => [100, 50] 
+
+        # User.find(6).claimed_contracts.sum(:reward) => 150 
+    end
 
 end 
