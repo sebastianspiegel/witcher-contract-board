@@ -17,4 +17,8 @@ class Contract < ActiveRecord::Base
         end
     end
 
+    def self.unclaimed_contracts
+        #scope method for all unclaimed contracts 
+    end
+
 end

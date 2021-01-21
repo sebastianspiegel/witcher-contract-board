@@ -23,7 +23,7 @@ DATA = {
         ["Relict", "Igni"]
     ],
     :locations => ["Velen", "Novigrad", "Vizima", "White Orchard", "Skellige", "Toussant", "Oxenfurt"],
-    :users => ["The Bloody Baron", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
+    :users => ["Zoltan Chivay", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
         ["name", "type_id"],
     :monsters => [
@@ -31,7 +31,14 @@ DATA = {
         ["Dracula", 1],
         ["Wham Wham", 9]
     ],
-    :witchers => ["Geralt", "Lambert", "Eskel"],
+    :witcher_keys => 
+        ["name", "school_id", "password"],
+    :witchers => [
+        ["Geralt", 2, "password"], 
+        ["Lambert", 2, "password"], 
+        ["Eskel", 2, "password"],
+        ["Letho", 5, "password"]
+    ],
     :contract_keys =>
         ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
@@ -65,8 +72,12 @@ def make_users
 end
 
 def make_witchers
-    DATA[:witchers].each do |name|
-        User.create(name: name, school_id: 3, password: 'password')
+    DATA[:witchers].each do |witcher|
+        new_witcher = User.new
+        witcher.each_with_index do |attribute, i|
+            new_witcher.send(DATA[:witcher_keys][i]+"=", attribute)
+        end
+        new_witcher.save
     end
 end
 
@@ -107,10 +118,7 @@ def make_contracts
 end
 
 def assign_contracts
-    w = WitchersContract.new
-    w.contract = Contract.first
-    w.user = User.find_by(name: "Geralt")
-    w.save
+    Contract.first.witcher_id = User.find(6)
 end
 
 main

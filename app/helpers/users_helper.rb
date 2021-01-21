@@ -4,7 +4,7 @@ module UsersHelper
         if !contract.contract_is_claimed?
             "Unclaimed"
         else
-            "Claimed by: #{link_to User.find(contract.claimed_by.id).name, user_path(contract.claimed_by.id)}"
+            "Claimed by: #{link_to User.find(contract.claimed_by.id).name, user_path(contract.claimed_by.id)}".html_safe
         end
         
     end

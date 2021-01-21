@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
     has_secure_password
     has_many :contracts 
     has_many :monsters, through: :contracts 
+    #has many claimed_cotracts (specific class to look at and forgien key claimed_id)
+    has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract"
     belongs_to :school 
     has_many :witcherscontracts 
     validates :name, uniqueness: true, presence: true
@@ -25,7 +27,10 @@ class User < ActiveRecord::Base
 
     def self.all_witchers
         where("school_id NOT IN (1)")
+        #rewrite V
     end
+
+   # scope :all_witchers, 
 
     def total_rewards
         # add up all the rewards from all the contracts a witcher has claimed 
