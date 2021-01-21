@@ -36,7 +36,7 @@ DATA = {
         ["reward", "details", "user_id", "monster_id", "location_id"],
     :contracts => [
         [100, "Wraith in the woods", 1, 1, 1],
-        [50, "Missing lute", 2, 2, 2],
+        [50, "Missing lute last seen being whisked away by a man with bloody fangs.", 2, 2, 2],
         [150, "Trolls in the woods causing problems", 3, 3, 1]
     ]
 }

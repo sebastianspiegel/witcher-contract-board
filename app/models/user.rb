@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
         where("school_id NOT IN (1)")
     end
 
+    def total_rewards
+        # add up all the rewards from all the contracts a witcher has claimed 
+        all_of_a_witchers_contracts.map {|contract| contract.reward}
+    end
+
     # scope :witcher_contracts, -> { Contract.where(claimed_id: self.id) }
 
 end 

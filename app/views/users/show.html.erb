@@ -5,3 +5,8 @@
 <%= claimed_or_posted_by %>
    
 <%= render partial: "contracts" %>
+
+<% if @user.witcher? %>
+<br><br>
+  Total number of coins earned: 
+<% end %>
