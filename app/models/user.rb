@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
     end
 
     def all_of_a_witchers_contracts
-        # WitchersContract.where(user_id: user.id)
         wc = WitchersContract.where(user_id: self.id).map {|n| n.contract_id}
         wc.map {|c| Contract.find(c)}
     end
