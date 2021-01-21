@@ -1,14 +1,5 @@
 module ContractsHelper
 
-    def all_unclaimed_contracts
-        @unclaimed_contracts = []
-        Contract.all.map do |contract|
-            if !contract_is_claimed?(contract)
-                @unclaimed_contracts << contract 
-            end
-            @unclaimed_contracts
-        end
-    end
 
     def monster_form_fields(f)
         if @monster   # params[:brand_id]

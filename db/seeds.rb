@@ -22,7 +22,7 @@ DATA = {
         ["Ogroid", "Quen"],
         ["Relict", "Igni"]
     ],
-    :locations => ["Velen", "Novigrad"],
+    :locations => ["Velen", "Novigrad", "Vizima", "White Orchard", "Skellige", "Toussant", "Oxenfurt"],
     :users => ["The Bloody Baron", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
         ["name", "type_id"],

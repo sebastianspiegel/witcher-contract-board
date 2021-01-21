@@ -1,5 +1,7 @@
 <h2>Sign up</h2>
 
+<%= render partial: "layouts/error", locals: {object: @user}  %>
+
 
 <%= form_tag ({controller: 'users', action: 'create', method: 'post'}) do %>
     Name: <%= text_field(:user, :name) %><br>
