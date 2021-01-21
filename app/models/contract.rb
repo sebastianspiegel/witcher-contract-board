@@ -7,20 +7,23 @@ class Contract < ActiveRecord::Base
 
 
     def contract_is_claimed?
-        # WitchersContract.find_by(contract_id: self.id) ? true : false 
         self.witcher_id? 
     end
 
     def claimed_by
         if contract_is_claimed?
-            #WitchersContract.find_by(contract_id: self.id).user
             User.find(witcher_id)
         end
     end
 
-    def self.unclaimed_contracts
-        #scope method for all unclaimed contracts 
-        #write as scope method after you figure it out 
-    end
+    scope :unclaimed_contracts, -> { where(witcher_id: nil) }
+
+    scope :location_with_most_monsters, -> {select(:location_id).joins(:location).group(:location_id).order("count_location_id DESC").count.first}
+    #first number = location_id, second number = # of contracts out
+
+    #richest_location
+    # "SELECT SUM(reward), location_id FROM contracts GROUP BY location_id ORDER BY SUM(reward) DESC LIMIT 1" 
+
+    #scope :richest_location, -> { select(sum(:reward), :location_id).group(:location_id).order(sum(reward: :desc)) } 
 
 end

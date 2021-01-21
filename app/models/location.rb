@@ -11,10 +11,12 @@ class Location < ApplicationRecord
         
     end
 
-    def location_with_most_monsters
+    def self.with_most_monsters
         #which location has the most mosnters? 
-        # SELECT * FROM contracts INNER JOIN locations WHERE contracts.location_id = locations.id ORDER BY location_id
+        #SELECT location_id, COUNT (*) FROM contracts JOIN locations WHERE contracts.location_id = locations.id GROUP BY location_id ORDER BY COUNT(*) DESC LIMIT 1
+        Location.find(Contract.location_with_most_monsters.first)
     end
+
 
     def richest_location
         #location with highest total rewards
@@ -24,7 +26,8 @@ class Location < ApplicationRecord
     end
 
     def regional_types
-        self.monsters.map {|monster| monster.type}.map {|type| type.name}
+
+        self.monsters.where 
     end
     
 end

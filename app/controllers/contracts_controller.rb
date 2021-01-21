@@ -42,7 +42,7 @@ class ContractsController < ApplicationController
     end
 
     def index 
-        @contracts = Contract.all #all unclaimed - call from model 
+        @contracts = Contract.unclaimed_contracts 
     end
 
     def edit

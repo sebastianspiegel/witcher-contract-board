@@ -23,22 +23,10 @@ class User < ActiveRecord::Base
     #     i know this is redundant, just reminding myself it exists 
     # end
 
-    def self.all_witchers
-        where("school_id NOT IN (1)")
-        #rewrite V
-        # scope :all_witchers, 
-    end
-
-
+    scope :all_witchers, -> { where.not(school_id: [1])}
 
     def total_rewards
-        # add up all the rewards from all the contracts a witcher has claimed 
-        # SELECT SUM(contracts.reward) FROM  contracts JOIN users ON contracts.witcher_id = users.id ORDER BY contracts.witcher_id
         claimed_contracts.sum(:reward)
-
-        # User.find(6).total_rewards => [100, 50] 
-
-        # User.find(6).claimed_contracts.sum(:reward) => 150 
     end
 
 end 

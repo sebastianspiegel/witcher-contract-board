@@ -39,12 +39,5 @@ module ContractsHelper
         end
     end
 
-    def available_contracts
-        @contracts.map do |contract|
-            if !contract.contract_is_claimed?
-                link_to contract.monster.name, contract_path(contract.id)
-            end
-        end
-    end
 
 end
