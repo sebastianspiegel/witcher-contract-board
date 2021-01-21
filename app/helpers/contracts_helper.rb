@@ -24,8 +24,12 @@ module ContractsHelper
     end
 
     def show_claim_button
+        #not working with form_for 
         if @user.witcher? && !@contract.contract_is_claimed?
-            button_to 'Claim Contract', action: 'create', controller: 'witchers_contracts', options: { params: {user_id: @user.id, contract_id: @contract.id} }
+            form_for(@contract) do |f|
+                f.hidden_field :witcher_id 
+                f.submit "Claim contract"
+            end
         end
     end
 

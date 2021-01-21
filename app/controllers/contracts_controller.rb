@@ -58,11 +58,15 @@ class ContractsController < ApplicationController
     end
 
     def update
-        #byebug
         @contract = Contract.find(params[:id])
         @contract.update(contract_params)
         if @contract.valid?
-            redirect_to contract_path(@contract.id)
+            if params[:contract][:witcher_id] != nil
+                flash[:message] = "You have sucessfully claimed this contract."
+                redirect_to user_path(session[:user_id])
+            else
+                redirect_to contract_path(@contract.id)
+            end
         else
             render :edit
         end
@@ -71,7 +75,7 @@ class ContractsController < ApplicationController
     private
 
     def contract_params
-        params.require(:contract).permit(:details, :reward, :monster_id, :location_id, monster_attributes: [:name, :type_id], location_attributes: [:name])
+        params.require(:contract).permit(:details, :reward, :monster_id, :location_id, :witcher_id, monster_attributes: [:name, :type_id], location_attributes: [:name])
     end
 
 end

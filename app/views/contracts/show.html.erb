@@ -7,7 +7,12 @@ Posted by: <%= link_to @contract.user.name, user_path(@contract.user.id) %><br><
 
 <%= show_claimed_by %>
 
-<%= show_claim_button %>
+<% if @user.witcher? && !@contract.contract_is_claimed? %>
+    <%= form_for(@contract) do |f| %>
+        <%= f.hidden_field :witcher_id, value: @user.id %>
+        <%= f.submit "Claim contract" %>
+    <% end %>
+<% end %>
 
 <%= show_edit_link %>
 

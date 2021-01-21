@@ -3,5 +3,5 @@
   Type: <%= contract.monster.type.name %><br>
   Reward: <%= contract.reward %> coins <br>
   Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br>
-  <%= claimed_or_unclaimed(contract) %><br>
+  <%= claimed_or_unclaimed(contract) %><br><br>
 <% end %>
