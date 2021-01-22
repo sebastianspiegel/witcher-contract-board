@@ -3,6 +3,9 @@ class Location < ApplicationRecord
     has_many :monsters, through: :contracts
     validates :name, uniqueness: true, presence: true
 
+
+    scope :richest_location, -> { find(Contract.richest_location.ids.first) }
+
     def most_prevelent_type
         #in THIS LOCATION which TYPE of monster is seen the most?
 
@@ -15,14 +18,6 @@ class Location < ApplicationRecord
         #which location has the most mosnters? 
         #SELECT location_id, COUNT (*) FROM contracts JOIN locations WHERE contracts.location_id = locations.id GROUP BY location_id ORDER BY COUNT(*) DESC LIMIT 1
         Location.find(Contract.location_with_most_monsters.first)
-    end
-
-
-    def richest_location
-        #location with highest total rewards
-        #select reward from contract where location == self 
-
-        Contract.where(:location_id => self.id).sum(:reward)
     end
 
     def regional_types
