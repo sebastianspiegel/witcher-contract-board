@@ -5,9 +5,8 @@ Location with the highest rewards: <%= @richtown.name %>
 <br><br>
 
 <% @locations.each do |location| %>
-  <%= location.name %><br>
+  <strong><%= location.name %></strong><br>
   <%= location.contracts.count %> posted contracts<br>
-  Types of monsters at this location: <%= location.regional_types %>
+  Types of monsters at this location: <%= location.display_regional_types %>
   <br><br>
 <% end %>  
-
