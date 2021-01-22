@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if params[:user][:name] == nil || params[:user][:name] == ""
+        if params[:user][:username] == nil || params[:user][:name] == "" 
             redirect_to signin_path
         else
             @user = User.find_by(name: params[:user][:name])

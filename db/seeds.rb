@@ -35,12 +35,12 @@ DATA = {
         ["Harpy", 6]
     ],
     :witcher_keys => 
-        ["name", "school_id", "password"],
+        ["name", "username", "school_id", "password"],
     :witchers => [
-        ["Geralt", 2, "password"], 
-        ["Lambert", 2, "password"], 
-        ["Eskel", 2, "password"],
-        ["Letho", 5, "password"]
+        ["Geralt", "whitewolf", 2, "password"], 
+        ["Lambert", "lambert", 2, "password"], 
+        ["Eskel", "ambereyes", 2, "password"],
+        ["Letho", "letho", 5, "password"]
     ],
     :contract_keys =>
         ["reward", "details", "user_id", "monster_id", "location_id"],
@@ -74,7 +74,7 @@ end
 
 def make_users
     DATA[:users].each do |name|
-        User.create(name: name, school_id: 1, password: 'password')
+        User.create(name: name, username: name.gsub(/\s+/, "").downcase, school_id: 1, password: 'password')
     end
 end
 

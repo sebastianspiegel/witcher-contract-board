@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
     has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract" 
     belongs_to :school 
     validates :name, uniqueness: true, presence: true
+    validates :username, uniqueness: true, presence: true, format: { without: /\s/ }, length: {minimum: 5}
     validates :password, length: {minimum: 5}
 
     def self.from_omniauth(response)
         User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.name = response[:info][:name]
+            u.username = response[:info][:name].gsub(/\s+/, "").downcase
             u.school_id = 1
             u.password = SecureRandom.hex(15)
         end

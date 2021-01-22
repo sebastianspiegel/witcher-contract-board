@@ -10,53 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_183839) do
-
-  create_table "contracts", force: :cascade do |t|
-    t.integer "reward"
-    t.text "details"
-    t.integer "user_id"
-    t.integer "monster_id"
-    t.integer "location_id"
-    t.integer "witcher_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "monsters", force: :cascade do |t|
-    t.string "name"
-    t.integer "type_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "schools", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "name"
-    t.string "weakness"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
-    t.integer "school_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "uid"
-    t.string "provider"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
