@@ -42,6 +42,37 @@ a:visited {
     width: 100%;
     text-align: left;
     padding: 10;
+    overflow: auto;
+    color: white; 
 }
 
 
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background:rgba(204, 204, 204, 0.137);
+    width: 200px;
+    margin-bottom: 10px; 
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 10px 16px;
+}
+
+.weclome {
+    margin-top: 50px;
+}
+
+.homelinks {
+    margin-left: 50px; 
+}
+
+.usershow {
+    margin-top: 40px; 
+}
+
+.indexpage {
+    margin-top: 30px; 
+}

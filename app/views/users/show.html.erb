@@ -1,8 +1,10 @@
-<h2><%= @user.name %></h2>
+<div class=usershow>
+    <h2><%= @user.name %></h2>
 
-<%= show_school %>
+    <%= show_school %>
 
-<%= claimed_or_posted_by %>
+    <%= claimed_or_posted %>
+</div>
    
 <%= render partial: "contracts" %>
 

@@ -1,7 +1,12 @@
+
 <% @contracts.each do |contract| %>
-  <%= contract.monster.name %><br>
-  Type: <%= contract.monster.type.name %><br>
-  Reward: <%= contract.reward %> coins <br>
-  Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br>
-  <%= claimed_or_unclaimed(contract) %><br><br>
+  <div class="card">
+  <div class="container">
+    <%= contract.monster.name %><br>
+    Type: <%= contract.monster.type.name %><br>
+    Reward: <%= contract.reward %> coins <br>
+    Posted by: <%= link_to contract.user.name, user_path(contract.user.id) %> <br>
+    <%= claimed_or_unclaimed(contract) %><br>
+  </div>
+  </div>
 <% end %>

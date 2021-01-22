@@ -6,7 +6,7 @@ Location with the highest rewards:
 
 <% @locations.each do |location| %>
   <%= location.name %><br>
-  Current number of contracts: <%= location.contracts.count %><br>
+  <%= location.contracts.count %> posted contracts<br>
   Types of monsters at this location: <%= location.regional_types %>
   <br><br>
 <% end %>  

@@ -14,6 +14,7 @@
     <div class="header">
     <h1>Digital Witcher Notice Board</h1>
     <div class="nav">
+      <%= link_to "Home", root_path %> | 
       <% if session[:user_id] %>
         <% if current_user.witcher? %>
           <%= link_to "Available Contracts", contracts_path %> | 

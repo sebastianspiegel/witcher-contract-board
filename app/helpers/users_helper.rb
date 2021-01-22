@@ -15,7 +15,7 @@ module UsersHelper
         end
     end
 
-    def claimed_or_posted_by
+    def claimed_or_posted
         if @user.witcher? && @user == current_user
             content_tag(:h4, "Claimed contracts:")
         elsif !@user.witcher?
