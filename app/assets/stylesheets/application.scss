@@ -34,6 +34,7 @@ a:visited {
     background-size: cover;
     height: 60px;
     text-align: center;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.4);
 }
 
 .nav {
@@ -44,6 +45,7 @@ a:visited {
     padding: 10;
     overflow: auto;
     color: white; 
+    text-shadow: none;
 }
 
 
@@ -63,10 +65,12 @@ a:visited {
 
 .weclome {
     margin-top: 50px;
+    text-align: center;
 }
 
 .homelinks {
     margin-left: 50px; 
+    text-align: left;
 }
 
 .usershow {
@@ -75,4 +79,9 @@ a:visited {
 
 .indexpage {
     margin-top: 30px; 
+}
+
+.loginmessage {
+    margin-top: 30px;
+    color:rgba(255, 0, 0, 0.815);
 }
