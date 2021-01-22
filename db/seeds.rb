@@ -8,20 +8,21 @@
 
 DATA = {
     :schools => ["None", "School of the Cat", "School of the Wolf", "School of the Bear", "School of the Viper"],
-    :type_keys =>
-        ["name", "weakness"],
-    :types => [
-        ["Vampire", "Igni"],
-        ["Specter", "Igni"],
-        ["Cursed One", "Quen"],
-        ["Draconid", "Aard"],
-        ["Elementa", "Aard"],
-        ["Hybrid", "Aard"],
-        ["Insectoid", "Golden Oriole"],
-        ["Necrophages", "Axii"],
-        ["Ogroid", "Quen"],
-        ["Relict", "Igni"]
-    ],
+    # :type_keys =>
+    #     ["name", "weakness"],
+    :types => ["Vampire", "Specter", "Cursed One", "Draconid", "Elementa", "Hybrid", "Insectoid", "Necrophage", "Ogroid", "Relict"],
+        # ["Vampire", "Igni"],
+        # ["Specter", "Igni"],
+        # ["Cursed One", "Quen"],
+        # ["Draconid", "Aard"],
+        # ["Elementa", "Aard"],
+        # ["Hybrid", "Aard"],
+        # ["Insectoid", "Golden Oriole"],
+        # ["Necrophages", "Axii"],
+        # ["Ogroid", "Quen"],
+        # ["Relict", "Igni"]
+    #],
+    :weakness_types => ["Sign", "Potion", "Bomb", "Oil"],
     :locations => ["Velen", "Novigrad", "Vizima", "White Orchard", "Skellige", "Toussant", "Oxenfurt"],
     :users => ["Zoltan Chivay", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
@@ -64,6 +65,7 @@ def main
     make_witchers 
     make_contracts 
     assign_contracts
+    make_weakness_types
 end
 
 def make_schools
@@ -95,14 +97,26 @@ def make_locations
 end
 
 def make_types
-    DATA[:types].each do |type|
-        new_type = Type.new
-        type.each_with_index do |attribute, i|
-          new_type.send(DATA[:type_keys][i]+"=", attribute)
-        end
-        new_type.save
-      end
+    DATA[:types].each do |name|
+        Type.create(name: name)
+    end
 end
+
+def make_weakness_types
+    DATA[:weakness_types].each do |name|
+        WeaknessType.create(name: name)
+    end
+end
+
+# def make_types
+#     DATA[:types].each do |type|
+#         new_type = Type.new
+#         type.each_with_index do |attribute, i|
+#           new_type.send(DATA[:type_keys][i]+"=", attribute)
+#         end
+#         new_type.save
+#       end
+# end
 
 def make_monsters
     DATA[:monsters].each do |monster|
