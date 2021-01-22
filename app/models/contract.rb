@@ -3,7 +3,7 @@ class Contract < ActiveRecord::Base
     belongs_to :monster
     belongs_to :location 
     accepts_nested_attributes_for :monster, :location 
-    validates :details, presence: true
+    validates :details, presence: true, length: { minimum: 10 }
 
 
     def contract_is_claimed?

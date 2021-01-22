@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract" 
     belongs_to :school 
     validates :name, uniqueness: true, presence: true
+    validates :password, length: {minimum: 5}
 
     def self.from_omniauth(response)
         User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|

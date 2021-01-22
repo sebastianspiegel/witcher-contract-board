@@ -9,6 +9,8 @@
     <%= text_field(:user, :name) %><br>
     Password: <br>
     <%= password_field(:user, :password) %><br>
+    Confirm password: <br>
+    <%= password_field(:user, :password_confirmation) %><br>
     <br>
     Witcher's Only:<br>
     School: <%= collection_select(:user, :school_id, School.all, :id, :name) %><br>
