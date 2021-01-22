@@ -4,6 +4,8 @@
 <%= form_for(@monster) do |f| %>
     <%= f.label :name %>
     <%= render partial: "form", locals: {in_the_partial: f} %><br>
+    <%= f.label :weaknesses %>  
+    <%= f.collection_select :weaknesses, Weakness.all, :id, :name, prompt: true %><br>
     <%= f.submit %> 
 <% end %>
 </div>

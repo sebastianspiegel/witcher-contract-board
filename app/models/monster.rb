@@ -11,7 +11,7 @@ class Monster < ActiveRecord::Base
         if c == 1
             self.weaknesses.first.name 
         elsif c == 2
-            self.weaknesses.first.name + " " + self.weaknesses.last.name
+            self.weaknesses.first.name + ", " + self.weaknesses.last.name
         end
     end
 

@@ -9,7 +9,7 @@
 
 <%= form_for(@monster) do |f| %>
     <%= f.label :name %>
-    <%= render partial: "form", locals: {in_the_partial: f} %><br><br>
+    <%= render partial: "form", locals: {in_the_partial: f} %><br>
     <%= f.submit %> 
 <% end %>
 </div>
