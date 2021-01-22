@@ -12,18 +12,6 @@ class ContractsController < ApplicationController
     def create
         @contract = Contract.new(contract_params)
         @contract.user = current_user
-        # if params[:contract][:monster_id] != ""
-        #     @contract.monster = Monster.find(params[:contract][:monster_id])
-        # else
-        #     @contract.monster = Monster.create(name: params[:contract][:monster_attributes][:name], type_id: params[:contract][:monster_attributes][:type_id])
-        # end
-
-        # if params[:contract][:location_id] != ""
-        #     @contract.location = Location.find(params[:contract][:location_id])
-        # else
-        #     @contract.location = Location.create(name: params[:contract][:location_attributes][:name])
-        # end
-
         if @contract.save
             redirect_to contract_path(@contract.id)
         else

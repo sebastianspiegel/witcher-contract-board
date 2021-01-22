@@ -1,7 +1,6 @@
 <div class=moveurass>
 
 <h2> <%= @type.name %> </h2>
-<h3> Weakness: <%= @type.weakness %> </h3>
 
 Monsters of this type:<br>
 <% @type.monsters.each do |monster| %>
@@ -13,3 +12,4 @@ Monsters of this type:<br>
   <%= link_to "Create a new #{@type.name} monster", new_type_monster_path(@type.id) %>
 <% end %>
 </div>
+
