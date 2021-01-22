@@ -1,14 +1,17 @@
+<div class=moveurass>
 <h2>Sign up</h2>
 
 <%= render partial: "layouts/error", locals: {object: @user}  %>
 
 
 <%= form_tag ({controller: 'users', action: 'create', method: 'post'}) do %>
-    Name: <%= text_field(:user, :name) %><br>
-    Password: <%= password_field(:user, :password) %><br>
+    Name: <br>
+    <%= text_field(:user, :name) %><br>
+    Password: <br>
+    <%= password_field(:user, :password) %><br>
     <br>
     Witcher's Only:<br>
     School: <%= collection_select(:user, :school_id, School.all, :id, :name) %><br>
-    <%= submit_tag 'Sign Up' %>
+    <div class="btn btn-primary"><%= submit_tag 'Sign Up' %></div>
 <% end %> 
-
+</div>

@@ -1,11 +1,9 @@
-<div class=weclome>
-    Wecome to the digital notice board. 
-    If you are a citizen in need of assistance, you can post a contract here. 
-    If you are a Witcher looking for work you can view and claim any available contacts.
-    <br><br>
-    <div class=homelinks>
-        <%= link_to "View monsters", types_path%><br>
+<div class="jumbotron">
+  <h1 class="display-3">Wecome to the digital notice board.</h1>
+  <p class="lead">If you are a citizen in need of assistance, you can post a contract here. 
+    If you are a Witcher looking for work you can view and claim any available contacts.</p>
+  <hr class="my-4">
+  <p><%= link_to "View monsters", types_path%><br>
         <%= link_to "View available Witchers", users_witchers_path %><br>
-        <%= link_to "View monster riddled locations", locations_path %>
-    </div>
+        <%= link_to "View monster riddled locations", locations_path %></p>
 </div>

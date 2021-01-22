@@ -3,6 +3,7 @@
   <head>
     <title>WitcherContractBoard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,25 +12,48 @@
   </head>
 
   <body>
-    <div class="header">
+    <div class="dropdown-header">
     <h1>Digital Witcher Notice Board</h1>
-    <div class="nav">
-      <%= link_to "Home", root_path %> | 
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
       <% if session[:user_id] %>
         <% if current_user.witcher? %>
-          <%= link_to "Available Contracts", contracts_path %> | 
-        <% else %>
-          <%= link_to "Post New Contract", new_contract_path %> | 
-        <% end %>
-        <%= link_to "Log Out", logout_path %> | 
-        Currently signed in as: <%= link_to current_user.name, user_path(current_user.id) %>
+      <li class="nav-item">
+        <a class="nav-link" href="/contracts">Available Contracts</a>
+      </li>
       <% else %>
-        <%= link_to "Sign In", signin_path %>
+      <li class="nav-item">
+        <a class="nav-link" href="/contracts/new">Post New Contract</a>
+      </li>
       <% end %>
-      <br><br>
-    </div>
-    </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <a class="nav-link" href="/signin">Sign in</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
     <div><%= flash[:message] %></div>
     <%= yield %>
   </body>
 </html>
+
+
+
+

@@ -1,4 +1,4 @@
-<br><br>
+<div class=moveurass>
 Monster: <%= @contract.monster.name %><br>
 Location: <%= @contract.location.name %><br>
 Reward: <%= @contract.reward %><br>
@@ -15,5 +15,4 @@ Posted by: <%= link_to @contract.user.name, user_path(@contract.user.id) %><br><
 <% end %>
 
 <%= show_edit_link %>
-
-
+</div>

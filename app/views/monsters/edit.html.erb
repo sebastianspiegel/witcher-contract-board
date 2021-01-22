@@ -1,3 +1,4 @@
+<div class=moveurass>
 <h2>Edit <%= @monster.name %></h2>
 
 <%= form_for(@monster) do |f| %>
@@ -5,3 +6,4 @@
     <%= render partial: "form", locals: {in_the_partial: f} %><br>
     <%= f.submit %> 
 <% end %>
+</div>

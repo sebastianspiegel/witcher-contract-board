@@ -1,3 +1,5 @@
+<div class=moveurass>
+
 <h2> <%= @type.name %> </h2>
 <h3> Weakness: <%= @type.weakness %> </h3>
 
@@ -10,3 +12,4 @@ Monsters of this type:<br>
 <% if logged_in? %>
   <%= link_to "Create a new #{@type.name} monster", new_type_monster_path(@type.id) %>
 <% end %>
+</div>

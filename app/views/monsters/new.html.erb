@@ -1,3 +1,4 @@
+<div class=moveurass>
 <% if @monster.type_id != nil %>
   <h2>Create a new <%= @monster.type.name %> monster </h2>
 <% else %>
@@ -11,3 +12,4 @@
     <%= render partial: "form", locals: {in_the_partial: f} %><br><br>
     <%= f.submit %> 
 <% end %>
+</div>
