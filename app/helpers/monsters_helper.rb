@@ -1,9 +1,7 @@
 module MonstersHelper
 
-    def display_weaknesses
-        @monster.weaknesses.each do |weakness|
-            "#{weakness.name} - (#{weakness.weakness_type.name})"
-        end
+    def self.display_weaknesses
+        find_weaknesses.each {|w| w.name}
     end
 
 end

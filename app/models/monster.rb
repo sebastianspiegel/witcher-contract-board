@@ -6,4 +6,13 @@ class Monster < ActiveRecord::Base
     validates :name, uniqueness: true, presence: true
     validates :type, presence: true 
 
+    def find_weaknesses
+        c = self.weaknesses.count
+        if c == 1
+            self.weaknesses.first.name 
+        elsif c == 2
+            self.weaknesses.first.name + " " + self.weaknesses.last.name
+        end
+    end
+
 end

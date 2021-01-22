@@ -7,8 +7,8 @@
 
 <div class="form-group">
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-    Name: <br>
-    <%= text_field(:user, :name) %><br>
+    Username: <br>
+    <%= text_field(:user, :username) %><br>
     Password: <br>
     <%= password_field(:user, :password) %><br>
     <div class="btn btn-primary"><%= submit_tag 'Sign In' %></div>

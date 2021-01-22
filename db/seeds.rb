@@ -23,6 +23,7 @@ DATA = {
         # ["Relict", "Igni"]
     #],
     :weakness_types => ["Sign", "Potion", "Bomb", "Oil"],
+    :signs => ["Igni", "Aard", "Yrden", "Quen", "Axii"],
     :locations => ["Velen", "Novigrad", "Vizima", "White Orchard", "Skellige", "Toussant", "Oxenfurt"],
     :users => ["Zoltan Chivay", "Dandelion", "Vernon Roche", "Triss Merigold", "Keira Metz"],
     :monster_keys =>
@@ -66,6 +67,8 @@ def main
     make_contracts 
     assign_contracts
     make_weakness_types
+    make_signs
+    weaken_monsters
 end
 
 def make_schools
@@ -108,6 +111,12 @@ def make_weakness_types
     end
 end
 
+def make_signs
+    DATA[:signs].each do |sign|
+        Weakness.create(name: sign, weakness_type_id: 1)
+    end
+end
+
 # def make_types
 #     DATA[:types].each do |type|
 #         new_type = Type.new
@@ -142,6 +151,14 @@ def assign_contracts
     Contract.first.update(witcher_id: 6)
     Contract.find(2).update(witcher_id: 6)
     Contract.find(3).update(witcher_id: 7)
+end
+
+def weaken_monsters
+    Monster.find(1).weaknesses << Weakness.find(1)
+    Monster.find(1).weaknesses << Weakness.find(2)
+    Monster.find(2).weaknesses << Weakness.find(3)
+    Monster.find(3).weaknesses << Weakness.find(4)
+    Monster.find(4).weaknesses << Weakness.find(5)
 end
 
 main

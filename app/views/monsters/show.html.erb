@@ -1,5 +1,6 @@
 <div class=moveurass>
 <h2> <%= @monster.name %> </h2>
 <h3> <%= @monster.type.name %></h3>
-<h3> <%= display_weaknesses %></h3>
+<h4> Weaknesses: <%= @monster.find_weaknesses %></h4>
+<%= link_to "Add Weakness", edit_monster_path(@monster.id) %>
 </div>
