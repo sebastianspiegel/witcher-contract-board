@@ -12,13 +12,16 @@ class WeaknessesController < ApplicationController
         @monster = Monster.find(params[:monster_id])
         if params[:weakness][:id] != ""
             @weakness = Weakness.find(params[:weakness][:id])
+            @monster.weaknesses << @weakness 
+            flash[:message] = "Weakness successfully added!"
         else
             @weakness = Weakness.new(weakness_params)
-            if !@weakness.save 
-                redirect_to new_monster_weakness_path(@monster.id)
+            if @weakness.save 
+                @monster.weaknesses << @weakness 
+            else
+                flash[:message] = "Weakness not successfully added."
             end
         end
-        @monster.weaknesses << @weakness 
         redirect_to monster_path(@monster.id)
     end
 

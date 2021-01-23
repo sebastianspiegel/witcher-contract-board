@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     validates :password, length: {minimum: 5}
 
     def self.from_omniauth(response)
+        byebug
         User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.name = response[:info][:name]
             u.username = response[:info][:name].gsub(/\s+/, "").downcase

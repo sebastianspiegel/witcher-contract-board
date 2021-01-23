@@ -1,4 +1,8 @@
 <div class="moveurass">
+<% if flash[:message] %>
+    <%= flash[:message] %>
+  <% end %>
+  <br>
 <h2>Add a weakness to <%= @monster.name %> </h2>
 
 <%= form_for(@weakness) do |f| %>
