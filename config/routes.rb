@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :weaknesses, only: [:new, :create]
   end
 
+  resources :weaknesses 
+
   resources :types, only: [:show, :index] do
     resources :monsters, only: [:new, :index, :create, :show]
   end

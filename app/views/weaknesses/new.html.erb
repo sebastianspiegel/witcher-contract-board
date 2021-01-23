@@ -1,1 +1,16 @@
-Add a weakness 
+<div class="moveurass">
+<h2>Add a weakness to <%= @monster.name %> </h2>
+
+<%= form_for(@weakness) do |f| %>
+    Select weakness to add: <br>
+    <%= f.label :name %>
+    <%= f.collection_select :id, Weakness.all, :id, :name, prompt: true %><br><br>
+    Or create new weakness:<br>
+    <%= f.label :weakness %>
+    <%= f.text_field :name %>
+    <%= f.label :type %>
+    <%= f.collection_select :weakness_type_id, WeaknessType.all, :id, :name, prompt: true %>
+    <%= hidden_field_tag :monster_id, @monster.id %>
+    <br><br><%= f.submit "Add weakness" %>
+<% end %>
+</div>
