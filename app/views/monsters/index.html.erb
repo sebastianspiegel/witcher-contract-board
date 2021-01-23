@@ -4,13 +4,14 @@
 <% @types.each do |type| %>
 <% if type.monsters.count != 0 %>
 <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-  <div class="card-header"><%= type.name.pluralize %>:</div>
+  <div class="card-header"><%= link_to type.name.pluralize, type_path(type)%>:</div>
   <div class="card-body">
   <% type.monsters.each do |monster| %>
-    <%= link_to monster.name, monster_path(monster) %><br>
-    </div>
-    </div>
+    <p class="card-text"><%= link_to monster.name, monster_path(monster) %></p>
+    
     <% end %>
+    </div>
+    </div>
   <% end %>
   
 <% end %>

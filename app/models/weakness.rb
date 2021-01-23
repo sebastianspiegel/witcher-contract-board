@@ -6,3 +6,4 @@ class Weakness < ApplicationRecord
     validates :weakness_type_id, presence: true 
 
 end
+
