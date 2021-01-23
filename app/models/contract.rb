@@ -2,7 +2,7 @@ class Contract < ActiveRecord::Base
     belongs_to :user
     belongs_to :monster
     belongs_to :location 
-    accepts_nested_attributes_for :monster, reject_if: proc { |attributes| attributes['name'].blank? }
+    accepts_nested_attributes_for :monster, reject_if: proc { |attributes| attributes['name'].blank? } 
     accepts_nested_attributes_for :location, reject_if: proc { |attributes| attributes['name'].blank? }
     validates :details, presence: true, length: { minimum: 10 }
 

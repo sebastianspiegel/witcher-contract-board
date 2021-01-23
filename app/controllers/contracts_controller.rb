@@ -35,6 +35,7 @@ class ContractsController < ApplicationController
 
     def edit
         redirect_if_not_logged_in
+        
         @contract = Contract.find(params[:id])
         if @contract.user != current_user
             flash[:message] = "You cannot edit this contract."
