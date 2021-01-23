@@ -6,10 +6,8 @@ class User < ActiveRecord::Base
     belongs_to :school 
     validates :name, uniqueness: true, presence: true
     validates :username, uniqueness: true, presence: true, format: { without: /\s/ }, length: {minimum: 5}
-    validates :password, length: {minimum: 5}
 
     def self.from_omniauth(response)
-        byebug
         User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.name = response[:info][:name]
             u.username = response[:info][:name].gsub(/\s+/, "").downcase
