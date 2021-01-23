@@ -1,6 +1,6 @@
 # Witcher Contract Board
 
-A digital notice board based on the Witcher game series. 
+A digital notice board based on the Witcher game series.
 
 ## Installation
 
@@ -12,7 +12,7 @@ Navigate to localhost:3000/ to use the site.
 
 ## Development 
 
-This site is currently under development. 
+This site is currently under development. Future features include an extended beastry. 
 
 ## Contributing
 
