@@ -1,5 +1,7 @@
 class MonstersController < ApplicationController
 
+    include MonstersHelper
+
     def show
         @monster = Monster.find(params[:id])
     end

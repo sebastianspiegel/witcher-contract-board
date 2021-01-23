@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   resources :contracts 
 
-  resources :monsters 
+  resources :monsters do
+    resources :weaknesses, only: [:new, :create]
+  end
 
   resources :types, only: [:show, :index] do
     resources :monsters, only: [:new, :index, :create, :show]
