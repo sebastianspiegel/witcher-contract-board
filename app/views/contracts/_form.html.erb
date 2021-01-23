@@ -3,9 +3,9 @@
     <%= f.text_area :details %><br>
     <%= f.label :reward %>
     <%= f.number_field :reward, step: 1, min: 5 %><br><br>
-    <%= f.label :monster %><br>
-    <%= monster_form_fields(f) %><br><br>
-    <%= f.label :location %><br>
-    <%= location_form_fields(f) %><br><br>
+    <%= render partial: "monster_fields", locals: {f: f} %>
+    <br><br>
+    <%= render partial: "location_fields", locals: {f: f} %>
+    <br><br>
     <%= f.submit %> 
 <% end %>

@@ -3,11 +3,6 @@
 
 <%= render partial: "layouts/error", locals: {object: @contract}  %>
 
-<%= form_for(@contract) do |f| %>
-    <%= f.label :details %>
-    <%= f.text_area :details %><br>
-    <%= f.label :reward %>
-    <%= f.number_field :reward, step: 1, min: 5 %><br><br>
-    <%= f.submit %>
-<% end %>
+<%= render partial: "form" %>
+
 </div>

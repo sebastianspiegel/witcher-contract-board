@@ -1,8 +1,12 @@
-Select a monster:
+<%= f.label :monster %><br>
 <%= f.collection_select :monster_id, Monster.all, :id, :name, prompt: true %><br>
 
-Or create a new monster:
-<%= f.fields_for :monster do |m| %>
-    <%= render partial: "monsters/form", locals: { in_the_partial: m } %>
-<% end %>
+<br>Or create a new monster:<br>
+    <%= f.fields_for :monster do |m| %> 
+        <%= m.label :name %>
+        <%= m.text_field :name %>
+        <%= m.label :type %>
+        <%= m.collection_select :type_id, Type.all, :id, :name, prompt: true %>
+    <% end %>
+
 
