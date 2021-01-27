@@ -3,9 +3,12 @@ class Contract < ActiveRecord::Base
     belongs_to :monster
     belongs_to :location 
     #belongs_to witcher aliasing 
-    accepts_nested_attributes_for :monster, reject_if: proc { |attributes| attributes['name'].blank? } #find or creat by
+    accepts_nested_attributes_for :monster, reject_if: proc { |attributes| attributes['name'].blank? }
     accepts_nested_attributes_for :location, reject_if: proc { |attributes| attributes['name'].blank? }
     validates :details, presence: true, length: { minimum: 10 }
+
+    before_save :find_or_create_monster
+    before_save :find_or_create_location
 
 
     def contract_is_claimed?
@@ -26,5 +29,16 @@ class Contract < ActiveRecord::Base
     #richest_location
     # "SELECT SUM(reward), location_id FROM contracts GROUP BY location_id ORDER BY SUM(reward) DESC LIMIT 1" 
     scope :richest_location, -> { select(:location_id, sum(:reward)).group(:location_id).order( "SUM(reward) DESC").limit(1) } 
+
+
+    private
+
+    def find_or_create_monster
+        self.monster = Monster.find_or_create_by(name: self.monster.name)
+    end
+
+    def find_or_create_location
+        self.location = Location.find_or_create_by(name: self.location.name)
+    end
 
 end
