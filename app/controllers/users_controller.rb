@@ -28,10 +28,15 @@ class UsersController < ApplicationController
         @witchers = User.all_witchers
     end
 
+    def index
+        @monster = Monster.find(params[:monster_id])
+        @users = @monster.users 
+    end
+
     private 
 
     def user_params
-        params.require(:user).permit(:name, :username, :password, :password_confirmation,:school_id)
+        params.require(:user).permit(:name, :username, :password, :password_confirmation, :school_id)
     end
     
 end

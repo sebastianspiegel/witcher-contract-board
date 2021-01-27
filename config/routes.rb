@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
   resources :monsters do
     resources :weaknesses, only: [:new, :create]
+    resources :users, only: [:index]
   end
+
+ 
 
   resources :weaknesses 
 
@@ -27,5 +30,9 @@ Rails.application.routes.draw do
   resources :locations, only: [:index]
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+
+  #get '*path', to: action#controller 
+
+  get '*path' => 'sessions#welcome'
 
 end

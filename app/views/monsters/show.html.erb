@@ -6,6 +6,9 @@
     <%= w.name %> - <%= w.weakness_type.name %><br>
 <% end %>
 
+#link to see which users have created contracts for this monster 
+<%= link_to "Users hunting this monster", monster_users_path(@monster.id) %> 
+
 <br>
 <%= link_to "Add Weakness", new_monster_weakness_path(@monster.id) %>
 </div>

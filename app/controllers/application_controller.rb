@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
 
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+
     include ApplicationHelper
+
+    def handle_record_not_found
+        flash[:message] = "Sorry, that page does not exist."
+        redirect_to root_path 
+      end
 
     private
 

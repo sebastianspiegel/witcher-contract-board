@@ -13,7 +13,7 @@ class MonstersController < ApplicationController
 
     def new 
         redirect_if_not_logged_in
-        if params[:type_id] && @type = Type.find(params[:type_id])
+        if params[:type_id] && @type = Type.find_by_id(params[:type_id])
             @monster = Monster.new(type_id: params[:type_id])
         else
             @monster = Monster.new 
