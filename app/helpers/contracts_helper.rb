@@ -19,7 +19,7 @@ module ContractsHelper
 
     def show_claimed_by
         if @contract.contract_is_claimed? 
-            "Claimed by: #{WitchersContract.find_by(contract_id: @contract.id).user.name}"
+            "Claimed by: #{@contract.witcher.name}"
         end
     end
 

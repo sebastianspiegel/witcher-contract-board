@@ -2,7 +2,8 @@ class Contract < ActiveRecord::Base
     belongs_to :user
     belongs_to :monster
     belongs_to :location 
-    #belongs_to witcher aliasing 
+    #belongs_to witcher aliasing / has_many :claimed_contracts, foreign_key: "witcher_id", class_name: "Contract" 
+    belongs_to :witcher, foreign_key: "witcher_id", class_name: "User"
     accepts_nested_attributes_for :monster, reject_if: proc { |attributes| attributes['name'].blank? }
     accepts_nested_attributes_for :location, reject_if: proc { |attributes| attributes['name'].blank? }
     validates :details, presence: true, length: { minimum: 10 }
@@ -17,7 +18,7 @@ class Contract < ActiveRecord::Base
 
     def claimed_by
         if contract_is_claimed?
-            User.find(witcher_id)
+            self.witcher 
         end
     end
 
