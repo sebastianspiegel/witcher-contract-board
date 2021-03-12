@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_22_205053) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contracts", force: :cascade do |t|
     t.integer "reward"
     t.text "details"
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_01_22_205053) do
   end
 
   create_table "monsters_weaknesses", id: false, force: :cascade do |t|
-    t.integer "monster_id"
-    t.integer "weakness_id"
+    t.bigint "monster_id"
+    t.bigint "weakness_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["monster_id"], name: "index_monsters_weaknesses_on_monster_id"
