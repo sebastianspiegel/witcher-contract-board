@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
             redirect_to signin_path
         else
             @user = User.find_by(username: params[:user][:username])
-            if !@user.authenticate(params[:user][:password])
+            if @user.nil? || !@user.authenticate(params[:user][:password])
                 redirect_to signin_path
             else
                 session[:user_id] = @user.id 
