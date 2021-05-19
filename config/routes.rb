@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
 
- 
-
   resources :weaknesses 
 
   resources :types, only: [:show, :index] do
