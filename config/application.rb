@@ -13,6 +13,8 @@ module WitcherContractBoard
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    config.secret_key_base = 'blipblapblup'
+
     # config.assets.initialize_on_precompile = false
 
     # Configuration for the application, engines, and railties goes here.
