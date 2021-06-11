@@ -16,7 +16,7 @@ After downloading, navigate into the repo and execute:
 
 ## Development 
 
-This site is currently under development. Future features include an extended beastry. 
+This site is currently under development as the creator works on fixing hosting bugs. 
 
 ## Contributing
 
